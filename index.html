@@ -56,20 +56,24 @@
     
     .webgl-balanced-container {
       display: flex;
-      justify-content: center;
       align-items: flex-start;
       gap: 40px;
-      flex-wrap: wrap;
+      width: 100%;           /* take full width */
+      justify-content: space-between; /* push left and right items to edges */
     }
     
     .instructions,
     .spacer {
-      flex: 1 1 300px; /* both take equal space, min 300px */
-      max-width: 400px; /* keep them from growing too huge */
+      flex: 0 0 300px;   /* fixed base width */
+      max-width: 400px;  /* cap size */
+    }
+    
+    .instructions {
+      text-align: left;  /* keep text hugging left */
     }
     
     .webgl-content {
-      flex: 0 0 auto; /* WebGL stays its natural size */
+      flex: 0 0 auto;    /* don’t stretch */
       display: flex;
       flex-direction: column;
       align-items: center;
