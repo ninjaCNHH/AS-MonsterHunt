@@ -45,15 +45,32 @@
       margin: 0.3em 0; /* reduced top and bottom space */
     }
     
-    /* Flex container to hold sidebar and Unity game */
     .content-container {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       gap: 40px;
-      margin-top: 40px;
       padding: 0 20px;
-      flex-wrap: wrap; /* allows wrapping on smaller screens */
+      flex-wrap: wrap;
+    }
+    
+    /* Wrapper around WebGL and fake spacer */
+    .webgl-balanced-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    
+    /* Approximate width of the left-side instruction panel */
+    .spacer {
+      width: 300px; /* Adjust as needed to match instructions section */
+    }
+    
+    .webgl-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     
     .instructions {
@@ -110,27 +127,28 @@
   <p>This is Anson's Black Belt project from Codeninjas Hacienda Heights</p>
   <p>Go on a quest, choose to defeat or capture Monster's and slay the evil Wizard!</p>
 
-  <div class="content-container">
-    <div class="instructions">
-      <h2 class="subtitle"> How To Play</h2>
-      <ol>
-        <li>Full screen is highly recommended</li>
-        <li>Use A and D to move left/right in the overworld</li>
-        <li>Choose to defeat enemies by fighting, or capture them to add to your team.</li>
-      </ol>
-    </div>
+<div class="content-container">
+  <div class="instructions">
+    <h2 class="subtitle">How To Play</h2>
+    <ol>
+      <li>Full screen is highly recommended</li>
+      <li>Use A and D to move left/right in the overworld</li>
+      <li>Choose to defeat enemies by fighting, or capture them to add to your team.</li>
+    </ol>
+  </div>
 
-    <div class="webgl-wrapper">
-      <div class="webgl-content">
-        <div id="unityContainer"></div>
-        <div class="footer">
-          <div class="webgl-logo"></div>
-          <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-          <div class="title">AS-BlackBeltProject</div>
-        </div>
+  <div class="webgl-balanced-container">
+    <div class="spacer"></div> <!-- Fake right-side content -->
+    <div class="webgl-content">
+      <div id="unityContainer"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">AS-BlackBeltProject</div>
       </div>
     </div>
   </div>
+</div>
 </body>
 
 </html>
