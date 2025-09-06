@@ -15,80 +15,120 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-image: url('background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            color: white;
-            font-size: 24px;
-        }
-        #main-title {
-            text-align: center;
-            font-size: 72px;
-            color: rgb(255, 171, 0);
-            text-shadow:
-                -2px -2px 0 #fff,
-                2px -2px 0 #fff,
-                -2px 2px 0 #fff,
-                2px 2px 0 #fff,
-                0px 2px 0 #fff,
-                2px 0px 0 #fff,
-                0px -2px 0 #fff,
-                -2px 0px 0 #fff;
-            font-family: "MedievalSharp", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
-        .subtitle {
-            color: rgb(255, 171, 0);
-            text-shadow:
-                -2px -2px 0 #fff,
-                2px -2px 0 #fff,
-                -2px 2px 0 #fff,
-                2px 2px 0 #fff,
-                0px 2px 0 #fff,
-                2px 0px 0 #fff,
-                0px -2px 0 #fff,
-                -2px 0px 0 #fff;
-            font-family: "MedievalSharp", cursive;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 64px;
-        }
-        p {
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-            font-style: italic;
-            text-align: center;
-        }
-        
-        li {
-            margin-bottom: 16px;
-            font-weight: bold;
-            font-style: italic;
-        }
+    body {
+      background-image: url('background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: white;
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+      font-family: "MedievalSharp", cursive;
+    }
+    
+    #main-title {
+      text-align: center;
+      font-size: 72px;
+      color: rgb(255, 171, 0);
+      text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff,
+                   0px 2px 0 #fff, 2px 0px 0 #fff, 0px -2px 0 #fff, -2px 0px 0 #fff;
+    }
+    
+    p {
+      text-align: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      font-style: italic;
+      margin: 0.5em 0;
+    }
+    
+    /* Flex container to hold sidebar and Unity game */
+    .content-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 40px;
+      padding: 0 20px;
+      flex-wrap: wrap; /* allows wrapping on smaller screens */
+    }
+    
+    .instructions {
+      flex: 1;
+      min-width: 250px;
+      max-width: 400px;
+    }
+    
+    .subtitle {
+      color: rgb(255, 171, 0);
+      text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff,
+                   0px 2px 0 #fff, 2px 0px 0 #fff, 0px -2px 0 #fff, -2px 0px 0 #fff;
+      font-size: 64px;
+      margin-bottom: 0.5em;
+    }
+    
+    ol {
+      padding-left: 1.2em;
+    }
+    
+    li {
+      margin-bottom: 16px;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 20px;
+    }
+    
+    /* Center Unity content */
+    .webgl-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 400px;
+    }
+    
+    /* Adjust Unity container size */
+    #unityContainer {
+      width: 640px;
+      height: 480px;
+      background: #000; /* fallback */
+    }
+    
+    .footer {
+      margin-top: 10px;
+      text-align: center;
+      color: #fff;
+    }
     </style>
   </head>
-  <body>
-    <h1 id="main-title"> Anson's Monster Hunt</h1>
-    <p>This is Anson's Black Belt project from Codeninjas Hacienda Heights</p>
-    <p>Go on a quest, choose to defeat or capture Monster's and slay the evil Wizard!</p>
-    <h2 class="subtitle"> How To Play</h2>
-    <ol>
+<body>
+  <h1 id="main-title"> Anson's Monster Hunt</h1>
+  <p>This is Anson's Black Belt project from Codeninjas Hacienda Heights</p>
+  <p>Go on a quest, choose to defeat or capture Monster's and slay the evil Wizard!</p>
+
+  <div class="content-container">
+    <div class="instructions">
+      <h2 class="subtitle"> How To Play</h2>
+      <ol>
         <li>Full screen is highly recommended</li>
-        <li> Use A and D to move left/right in the overworld</li>
+        <li>Use A and D to move left/right in the overworld</li>
         <li>Choose to defeat enemies by fighting, or capture them to add to your team.</li>
-    </ol>
-    <br>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 400px; height: 300px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">AS-BlackBeltProject</div>
+      </ol>
+    </div>
+
+    <div class="webgl-wrapper">
+      <div class="webgl-content">
+        <div id="unityContainer"></div>
+        <div class="footer">
+          <div class="webgl-logo"></div>
+          <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+          <div class="title">AS-BlackBeltProject</div>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
